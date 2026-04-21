@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h2>Velkomin á Uppskriftavefinn</h2>
+        <p>hér getur þú fundið spennandi nýjar uppskriftir eða deilt þínum eigin með öðrum.
+            eldamennska hefur aldrei verið skemmtilegri!
+        </p>
+        <a href="/uppskriftir" class="btn-primary">Skoða Uppskriftir</a>
+    </div>
+</section>
+
+<section class="featured">
+    <h3>Úrval vikunnar</h3>
+    <div class="card-grid">
+        <% if (recipes && recipes. length > 0) { %>
+            <% recipes.forEach(recipe => %>
+                <div class="recipe-card">
+                    <div class="card-img placeholder-img"></div>
+                    <div class="card-info">
+                        <h4><%= recipe.title %></h4>
+                        <p>Tími: <%= recipe.time_minutes %> mín</p>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <div class="recipe-card">
+                <div class="card-info">
+                    <h4>engar uppskriftir fundust</h4>
+                    <p>bættu við uppskriftum í gagnagrunninn.</p>
+                </div>
+            </div>
+        <% } %>
+    </div>  
+</section>
+
+<%- include('partials/footer') %>
